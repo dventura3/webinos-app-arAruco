@@ -1,0 +1,98 @@
+<html>
+
+<head>
+  <title>Augmented Reality Marker Detector</title>
+
+  <link rel="stylesheet" href="css/mystyle.css" type="text/css" />
+  <link rel="stylesheet" href="css/switch_button.css" type="text/css" />
+
+  <script type="text/javascript" src="js/jsapi.js"></script>
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/RGraph/libraries/RGraph.common.core.js" ></script>
+  <script src="js/RGraph/libraries/RGraph.line.js" ></script>
+  <script src="js/RGraph/libraries/RGraph.common.dynamic.js" ></script>
+  <script src="js/RGraph/libraries/RGraph.common.tooltips.js" ></script>
+  <script src="js/RGraph/libraries/RGraph.common.effects.js" ></script>
+  <script src="js/RGraph/libraries/RGraph.gauge.js" ></script>
+  <script src="js/RGraph/libraries/RGraph.thermometer.js" ></script>
+  <script type="text/javascript" src="js/corechart.js"></script>
+  <script type="text/javascript" src="js/graphics.js"></script>
+  <script type="text/javascript" src="js/ActuatorComponent.js"></script>
+  <script type="text/javascript" src="js/fileManagment.js"></script>
+
+  <!-- THERMOMETER 
+  <link href="js/thermUI/themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+  <script src="js/thermUI/external/jquery-1.8.0.min.js" type="text/javascript"></script>
+  <script src="js/thermUI/external/jquery-ui-1.8.23.custom.min.js" type="text/javascript"></script>
+  <script src="js/thermUI/external/raphael-min.js" type="text/javascript"></script>
+  <script src="js/thermUI/wijmo/jquery.wijmo.raphael.js" type="text/javascript"></script>
+  <script src="js/thermUI/wijmo/jquery.wijmo.wijgauge.js" type="text/javascript"></script>
+  <script src="js/thermUI/wijmo/jquery.wijmo.wijlineargauge.js" type="text/javascript"></script>
+-->
+
+  <!-- NEW THERM -->
+  <link rel="stylesheet" type="text/css" href="css/jquery.jqGauges.css" />
+  <script src="js/gaugeTh/jquery.jqGauges.min.js" type="text/javascript"></script>
+
+
+  <script type="text/javascript" src="js/libs/polyfill.js"></script> 
+  
+  <script type="text/javascript" src="js/aruco/cv.js"></script> 
+  <script type="text/javascript" src="js/aruco/aruco.js"></script> 
+
+  <script src="/webinos.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+
+<body style="font-family: monospace;">
+
+  <div>
+    <div style="margin: 10px;"><strong>-= Webino Application with Augmented Reality =-</strong></div>
+    <video id="video" autoplay="true" style="display:none;"></video>
+    <canvas id="canvas" style="width:640px; height:480px; position:absolute;left:10;top:10;"></canvas>
+  </div>
+
+
+  <div id="overlay" style="display:none; width:640px; height:480px; position:absolute;left:10;top:10">
+
+    <div class="boxbig">
+      <div class="boxmenusx">
+        <button id="back" class="myButton"></button>
+      </div>
+      <div class="boxmenudx">
+        <button id="sensorButton" class="myButton"></button>
+      </div>
+      <div class="boxcontenuto">
+        <p id="serviceName"></p>
+        <p id="serviceDescription"></p>
+      </div>
+    </div>
+
+
+    <div id="valueDiv">
+      <p><b>Actual Value: </b><span id="values"></span></p>
+    </div>
+
+    <div id="content_chart"></div>
+    <div id="content_actuator"></div>
+  </div>
+
+
+  <!-- TODO -->
+  <div style="margin-left:660px">
+    <div id="new_marker"></div>
+
+    <table id="example">
+    <tr>
+        <th>Name:</th>
+        <th>Marker ID:</th>
+    </tr>
+    </table>
+  </div>
+
+
+</body>
+  
+</html>

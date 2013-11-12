@@ -1,0 +1,156 @@
+.trasparent-button{
+	background: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 0.7);
+	border:0px;
+}
+#capture{
+	width:100px;
+	height:30px;
+	position:absolute;
+	left:350px;
+	top:530px;
+}
+
+#overlay{
+	position:absolute;
+	width: 800px;
+	height:600px;
+	left:0px;
+	top:0px;
+	background: rgba(255, 255, 255, 0.3);
+}
+#monitor{
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+#serviceName{
+	font-weight:bold;
+}
+/*
+#serviceDescription{
+	font-size: small;
+}
+*/
+.myButton{
+	/*position:absolute;*/
+	width:100px;
+	height:50px;
+	/*left:500px;
+	top:20px;*/
+}
+#valueDiv{
+	width:610px;
+	height:30px;
+	text-align:right;
+	/*margin-right: 30px;
+	 position:absolute;
+	left:610px;
+	top:10px;
+	*/
+}
+/*
+#values{
+	font-size: small;
+}
+*/
+#actuatorSlider{
+	
+}
+#sensor-chart{
+	background: rgba(255, 255, 255, 0.1);
+	position:absolute;
+	top:200px;
+	left:50px;
+	height:300px;
+	width:700px;
+}
+#photo{
+	position: absolute;
+	left: 0px;
+	top: 680px;
+	
+}
+#actuatorSlider{
+	width: 400px;
+}
+
+
+.thermometer_style{
+	position:absolute;
+	left:200px;
+	margin-top:10px;
+}
+
+.lineChart_style{
+	height:320px;
+	width:600px;
+	left:20px;
+	margin-top:10px;
+}
+
+.switch_style{
+	left:300px;
+	margin-top:100px;
+}
+
+#speed{
+    width: 330px;
+    margin-left:260px;
+	margin-top:260px;
+}
+
+.textbox {
+	background-color : #F7F778;
+	border: 1px solid #848484;
+	height:25px;
+	width: 275px;
+	outline:0;
+	margin: 5px;
+}
+
+.inputBox_style{
+	margin-left:260px;
+	margin-top:260px;
+}
+
+
+.boxbig{ /*border:2px solid black;*/ width:640px; margin:0 auto 0 auto; text-align:center;}
+.boxmenusx{float:left; /*border:2px solid green;*/ width:150px; height:70px;}
+.boxmenudx{float:right; /*border:2px solid green;*/ width:150px; height:70px;}
+.boxcontenuto{/*border:2px solid red;*/ height:70px;}
+
+
+/*
+	STYLE for TABLE
+*/
+table#example {
+    border-collapse: collapse;   
+}
+#example tr {
+    background-color: #eee;
+    border-top: 1px solid #fff;
+}
+#example tr:hover {
+    background-color: #ccc;
+}
+#example th {
+    background-color: #fff;
+}
+#example th, #example td {
+    padding: 3px 5px;
+}
+#example td:hover {
+    cursor: pointer;
+}
+/*	END	*/
+
+#new_marker{
+	text-align:center;
+	border:2px solid red;
+	width:140px;
+	height:60px;
+	color:red;
+	font-size:50px;
+}
+
