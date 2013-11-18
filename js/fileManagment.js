@@ -74,6 +74,8 @@ function load_file(file_name){
 				}
 				catch(err){
 					//alert(err.message);
+					discoverActuators();
+					discoverSensors();
 				}
 			}
 
@@ -86,7 +88,6 @@ function load_file(file_name){
 		function (error) {
 			//if the file data.txt doesn't exist load the default upload image and center it
 			//alert("Error on read file");
-			
 			//load sensors and actuators
 			discoverActuators();
 			discoverSensors();

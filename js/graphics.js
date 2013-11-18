@@ -214,6 +214,8 @@ Thermometer.methods({
             step: function () {
                 var scales = $('#jqLinearGauge').jqLinearGauge('option', 'scales');
 
+                alert(scales[0]);
+                alert(scales[0].barMarkers[0]);
                 scales[0].barMarkers[0].value = this.v1;
 
                 $('#jqLinearGauge').jqLinearGauge('update');

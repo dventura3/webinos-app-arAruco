@@ -8,6 +8,7 @@ var sensor = {};
 var actuator = {};
 var registered = false;
 var toFind = true;
+var toRemoveFromFile = false;
 
 var operations = {
 	"ADD" : false,
@@ -304,18 +305,78 @@ function insertNewRowInTable(id, description){
     }
     if(!found)
     	html += '<td id="markerID_'+id+'"></td>';
+    html += '<td><div id="remove_'+id+'"><img width="15px" height="15px" src="assets/img/x_min.png" style="float:right;"></div></td>';
     html += '</tr>';
 
     $("#example").append(html);
 
+    
     $("#"+id).on("click", function(){
-    	var saID = this.id;
-    	var markerID = $("#new_marker").text();
-    	idObject_to_identify[markerID] = saID;
-    	save_file(idObject_to_identify, file_name_aruco);
-    	var idElem = "#markerID_"+saID;
-    	$(idElem).text(markerID);
+    	if(toRemoveFromFile == operations.ADD){
+	    	var saID = this.id;
+	    	var markerID = $("#new_marker").text();
+	    	alert(markerID);
+	    	if(markerID.length != 0){
+	    		//IF THERE IS another marker with the same sensor ID, I have to remove this!
+		    	for(var i in idObject_to_identify){
+		    		if(idObject_to_identify[i] == saID)
+		    			delete idObject_to_identify[i];
+		    	}
+
+	    		idObject_to_identify[markerID] = saID;
+	    		save_file(idObject_to_identify, file_name_aruco);
+	    		//var idElem = "#markerID_"+saID;
+	    		//$(idElem).text(markerID);
+	    	}
+    	}
+    	updateGUIMarkerMatching();
+    	toRemoveFromFile = operations.ADD;
 	});
+	
+
+	$("#remove_"+id).on("click", function(){
+    	var splittingString = this.id.split("_");
+    	var markerID;
+    	for(var i in idObject_to_identify){
+    		if(idObject_to_identify[i] == splittingString[1]){
+    				markerID = i;
+    		}
+    	}
+    	delete idObject_to_identify[markerID];
+    	save_file(idObject_to_identify, file_name_aruco);
+    	toRemoveFromFile = operations.REMOVE;
+	});
+
+}
+
+function updateGUIMarkerMatching(){
+	//sensors
+	for(var j in sensorServices){
+		var isThereMarkerMatched = "";
+		for(var i in idObject_to_identify){
+			if(idObject_to_identify[i] == sensorServices[j].id){
+				isThereMarkerMatched = i;
+				break;
+			}
+		}
+		var idElem = "#markerID_"+sensorServices[j].id;
+		$(idElem).text("");
+		$(idElem).text(isThereMarkerMatched);
+	}
+
+	//actuators
+	for(var j in actuatorServices){
+		var isThereMarkerMatched = "";
+		for(var i in idObject_to_identify){
+			if(idObject_to_identify[i] == actuatorServices[j].id){
+				isThereMarkerMatched = i;
+				break;
+			}
+		}
+		var idElem = "#markerID_" + actuatorServices[j].id;
+		$(idElem).text("");
+		$(idElem).text(isThereMarkerMatched);
+	}
 }
 
 function listenSensor(staticRegistered){
