@@ -315,7 +315,6 @@ function insertNewRowInTable(id, description){
     	if(toRemoveFromFile == operations.ADD){
 	    	var saID = this.id;
 	    	var markerID = $("#new_marker").text();
-	    	alert(markerID);
 	    	if(markerID.length != 0){
 	    		//IF THERE IS another marker with the same sensor ID, I have to remove this!
 		    	for(var i in idObject_to_identify){
